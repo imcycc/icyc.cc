@@ -26,13 +26,19 @@ export default defineConfig({
       },
     });
   },
-  //配置 externals 还能减小编译消耗
+  // 设置哪些模块可以不被打包，通过 <script> 或其他方式引入，通常需要和 scripts 或 headScripts 配置同时使用。
   externals: {
     'react': 'window.React',
     'react-dom': 'window.ReactDOM',
-    'moment': 'window.moment',
+    // 'moment': 'window.moment',
     'antd': 'window.antd',
   },
+  scripts: [
+    'https://unpkg.com/react@^16/umd/react.production.min.js',
+    'https://unpkg.com/react-dom@^16/umd/react-dom.production.min.js',
+    'https://unpkg.com/antd@^4/dist/antd.min.js'
+  ],
+  styles: ['https://unpkg.com/antd@^4/dist/antd.min.css'],
   //启用后自动配置 babel-plugin-import实现antd按需加载  false 表示不开启  {} 表示开启
   antd: false,
   // 路由
