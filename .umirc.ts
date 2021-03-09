@@ -30,12 +30,13 @@ export default defineConfig({
   externals: {
     'react': 'window.React',
     'react-dom': 'window.ReactDOM',
-    // 'moment': 'window.moment',
+    'moment': 'window.moment',
     'antd': 'window.antd',
   },
   scripts: [
     'https://unpkg.com/react@^16/umd/react.production.min.js',
     'https://unpkg.com/react-dom@^16/umd/react-dom.production.min.js',
+    'https://unpkg.com/moment@^2/min/moment.min.js',
     'https://unpkg.com/antd@^4/dist/antd.min.js'
   ],
   styles: ['https://unpkg.com/antd@^4/dist/antd.min.css'],
