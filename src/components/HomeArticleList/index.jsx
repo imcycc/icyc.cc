@@ -86,7 +86,7 @@ const HomeArticleList = props => {
               >
                 <List.Item.Meta
                   title={
-                    <Link to={`/article/${item._id}`} target="_blank">
+                    <Link to={`/article/${item._id}`}>
                       <h3 className="fw-700 ft-16">{item.title}</h3>
                     </Link>
                   }
