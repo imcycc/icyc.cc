@@ -54,7 +54,7 @@ const Article = props => {
                   <div style={{ display: 'flex' }}>
                     <UserAvatar size="large" src={''} />
                     <div className="pl-1m">
-                      <h4 className="mb-0 fw-700">icyc</h4>
+                      <h4 className="mb-0 fw-700">cyc</h4>
                       <small>
                         {moment(detail.create_at).format(
                           'YYYY[年]MM[月]DD[日]',
