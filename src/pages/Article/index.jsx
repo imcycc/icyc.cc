@@ -52,18 +52,13 @@ const Article = props => {
                   }}
                 >
                   <div style={{ display: 'flex' }}>
-                    {detail && detail.user && detail.user.avatar && (
-                      <UserAvatar size="large" src={detail.user.avatar} />
-                    )}
+                    <UserAvatar size="large" src={''} />
                     <div className="pl-1m">
-                      <h4 className="mb-0 fw-700">
-                        {detail.user && detail.user.nickname}
-                      </h4>
+                      <h4 className="mb-0 fw-700">icyc</h4>
                       <small>
-                        {moment(detail.createdAt).format(
+                        {moment(detail.create_at).format(
                           'YYYY[年]MM[月]DD[日]',
                         )}
-                        <span className="ml-10">{detail.view}阅读</span>
                       </small>
                     </div>
                   </div>

@@ -11,7 +11,9 @@ export default defineConfig({
   //   },
   // },
   //开启按需加载
-  dynamicImport: {},
+  dynamicImport: {
+    loading: '@/components/PageLoading',
+  },
   //开启按需加载后把 css 打包成一个文件
   chainWebpack(config) {
     config.optimization.splitChunks({
@@ -22,22 +24,22 @@ export default defineConfig({
           chunks: 'async',
           minChunks: 1,
           minSize: 0,
-        }
+        },
       },
-    });
+    })
   },
   // 设置哪些模块可以不被打包，通过 <script> 或其他方式引入，通常需要和 scripts 或 headScripts 配置同时使用。
   externals: {
-    'react': 'window.React',
+    react: 'window.React',
     'react-dom': 'window.ReactDOM',
-    'moment': 'window.moment',
-    'antd': 'window.antd',
+    moment: 'window.moment',
+    antd: 'window.antd',
   },
   scripts: [
     'https://unpkg.com/react@^16/umd/react.production.min.js',
     'https://unpkg.com/react-dom@^16/umd/react-dom.production.min.js',
     'https://unpkg.com/moment@^2/min/moment.min.js',
-    'https://unpkg.com/antd@^4/dist/antd.min.js'
+    'https://unpkg.com/antd@^4/dist/antd.min.js',
   ],
   styles: ['https://unpkg.com/antd@^4/dist/antd.min.css'],
   //启用后自动配置 babel-plugin-import实现antd按需加载  false 表示不开启  {} 表示开启
@@ -96,5 +98,4 @@ export default defineConfig({
       component: '@/pages/404',
     },
   ],
-
 })

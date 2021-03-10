@@ -14,6 +14,7 @@ const errorHandler = error => {
 const request = extend({
   errorHandler, // 默认错误处理
   prefix: 'http://api.icyc.cc',
+  // prefix: 'http://localhost:3001',
 })
 
 // 添加请求头

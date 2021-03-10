@@ -42,17 +42,27 @@ const HomeArticleList = props => {
   return (
     <div>
       <Card bordered={false}>
-        {tag_id && `标签：${tags.find(tag => tag._id == tag_id)?.name}`}
+        {tag_id && (
+          <>
+            标签：
+            {
+              <Tag color="orange">
+                {tags.find(tag => tag._id == tag_id)?.name}
+              </Tag>
+            }
+          </>
+        )}
         <List
           loading={loading}
           itemLayout="vertical"
           dataSource={articles}
-          pagination={{
-            pageSize: 10,
-            total: article_count,
-            current: page,
-            onChange: pageChange,
-          }}
+          pagination={false}
+          // pagination={{
+          //   pageSize: 10,
+          //   total: article_count,
+          //   current: page,
+          //   onChange: pageChange,
+          // }}
           renderItem={item => (
             <Skeleton avatar title={false} loading={false} active>
               <List.Item
@@ -67,11 +77,6 @@ const HomeArticleList = props => {
                     text={item.favorite}
                     key="list-vertical-like-o"
                   />,
-                  <IconText
-                    icon={MessageOutlined}
-                    text={item.comment}
-                    key="list-vertical-message"
-                  />,
                 ]}
                 extra={
                   item.cover ? (
@@ -81,13 +86,16 @@ const HomeArticleList = props => {
               >
                 <List.Item.Meta
                   title={
-                    <Link to={`/article/${item._id}`} target="_block">
+                    <Link to={`/article/${item._id}`} target="_blank">
                       <h3 className="fw-700 ft-16">{item.title}</h3>
                     </Link>
                   }
                   description={
                     <span>
-                      <Tag color="orange">{item.tag && item.tag.name}</Tag>
+                      {item.tags &&
+                        item.tags.map(tag => (
+                          <Tag color="orange">{tag.name}</Tag>
+                        ))}
                       <span>{'cyc'}</span>
                       <span className="mrl-5">·</span>
                       <span>

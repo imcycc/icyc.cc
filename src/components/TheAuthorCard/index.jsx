@@ -11,7 +11,7 @@ const TheAuthorCard = () => {
   const detail = {
     user: {
       avatar: 'default',
-      nickname: 'icyc',
+      nickname: 'cyc',
       profession: 'web前端工程师',
       total_view: '99w',
       total_like: '99w',

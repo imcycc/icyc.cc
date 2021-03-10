@@ -53,7 +53,6 @@ const Article = props => {
     },
     {
       title: '标题',
-      width: 150,
       ellipsis: true,
       render(article) {
         return (
@@ -78,7 +77,16 @@ const Article = props => {
       },
     },
     {
+      title: '发布状态',
+      width: 120,
+      dataIndex: 'status',
+      render(date) {
+        return <span>{'已发布'}</span>
+      },
+    },
+    {
       title: '创建时间',
+      width: 120,
       dataIndex: 'create_at',
       render(date) {
         return <span>{moment(date).format('YYYY-MM-DD')}</span>
@@ -86,13 +94,17 @@ const Article = props => {
     },
     {
       title: '更新时间',
+      width: 120,
       dataIndex: 'update_at',
-      render(date) {
-        return <span>{moment(date).format('YYYY-MM-DD')}</span>
+      render(date, item) {
+        return (
+          <span>{moment(date || item.create_at).format('YYYY-MM-DD')}</span>
+        )
       },
     },
     {
       title: '操作',
+      width: 150,
       dataIndex: '_id',
       render(_id) {
         return (
@@ -131,12 +143,13 @@ const Article = props => {
           dataSource={articles}
           rowKey="_id"
           loading={loading}
-          pagination={{
-            pageSize: 10,
-            total: articleCount,
-            current: page,
-            onChange: pageChange,
-          }}
+          pagination={false}
+          // pagination={{
+          //   pageSize: 10,
+          //   total: articleCount,
+          //   current: page,
+          //   onChange: pageChange,
+          // }}
         />
       </Card>
     </>

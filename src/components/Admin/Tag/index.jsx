@@ -76,6 +76,7 @@ const Tag = props => {
   const columns = [
     {
       title: '序号',
+      width: 50,
       dataIndex: '_id',
       render: (_, __, index) => index + 1,
     },
@@ -86,13 +87,25 @@ const Tag = props => {
     },
     {
       title: '创建时间',
+      width: 150,
       dataIndex: 'createdAt',
       render(date) {
         return <span>{moment(date).format('YYYY-MM-DD')}</span>
       },
     },
     {
+      title: '更新时间',
+      width: 150,
+      dataIndex: 'update_at',
+      render(date, item) {
+        return (
+          <span>{moment(date || item.create_at).format('YYYY-MM-DD')}</span>
+        )
+      },
+    },
+    {
       title: '操作',
+      width: 150,
       render(tag) {
         return (
           <>

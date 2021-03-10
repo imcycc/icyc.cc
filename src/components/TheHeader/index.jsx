@@ -82,7 +82,7 @@ const TheHeader = props => {
             <Button type="link" onClick={showDrawer}>
               <MenuOutlined />
             </Button>
-            <span>icyc</span>
+            <span>cyc</span>
           </div>
         </div>
       </div>
