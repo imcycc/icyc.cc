@@ -3,13 +3,8 @@ import { defineConfig } from 'umi'
 export default defineConfig({
   title: 'icyc.cc',
   favicon: '/favicon.png',
-  // proxy: {
-  //   '/api': {
-  //     target: 'https://api.icyc.cc/',
-  //     pathRewrite: { '^/api': '' },
-  //     changeOrigin: true,
-  //   },
-  // },
+  // 静态资源路径
+  publicPath: 'http://storage.icyc.cc/icyc/dist/',
   //开启按需加载
   dynamicImport: {
     loading: '@/components/PageLoading',
