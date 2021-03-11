@@ -4,7 +4,10 @@ export default defineConfig({
   title: 'icyc.cc',
   favicon: '/favicon.png',
   // 静态资源路径
-  publicPath: 'http://storage.icyc.cc/icyc/dist/',
+  publicPath:
+    process.env.NODE_ENV === 'production'
+      ? 'http://storage.icyc.cc/icyc/dist/'
+      : '/',
   //开启按需加载
   dynamicImport: {
     loading: '@/components/PageLoading',

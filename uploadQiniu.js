@@ -16,9 +16,6 @@ config.zone = qiniu.zone.Zone_z0
 // 上传是否使用cdn加速
 //config.useCdnDomain = true;
 
-var formUploader = new qiniu.form_up.FormUploader(config)
-var putExtra = new qiniu.form_up.PutExtra()
-
 // 单个文件上传
 function upload(key, filepath) {
   var options = {
@@ -26,6 +23,8 @@ function upload(key, filepath) {
   }
   var putPolicy = new qiniu.rs.PutPolicy(options)
   var uploadToken = putPolicy.uploadToken(mac)
+  var formUploader = new qiniu.form_up.FormUploader(config)
+  var putExtra = new qiniu.form_up.PutExtra()
 
   new Promise(function(resolve, reject) {
     // 文件上传
