@@ -12,7 +12,7 @@ const Markdown = props => {
     <ReactMarkdownWithHtml
       children={markdown}
       linkTarget={() => '_blank'}
-      plugins={[[require('remark-math')]]}
+      plugins={[require('remark-math'), require('remark-gfm')]}
       renderers={{
         code: CodeTag,
         image: ImageTag,
@@ -24,5 +24,7 @@ const Markdown = props => {
     />
   )
 }
-
+// |1|2|
+// |-|-|
+// |1|1|
 export default Markdown
