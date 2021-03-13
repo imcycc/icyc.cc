@@ -5,24 +5,24 @@ const ArticleAnchor = props => {
   const { anchors } = props
   const anchorRender = data => {
     return data.map(item => {
-      if (item.children) {
+      if (item.descendants) {
         return (
           <Anchor.Link
-            key={`${item.tag}-${item.title}`}
-            href={`#${item.href}`}
-            title={item.title}
-            className={item.ismain ? 'bold' : ''}
+            key={`${item.id}`}
+            href={`#${encodeURIComponent(item.name)}`}
+            title={item.name}
+            className={item.level == 2 ? 'bold' : ''}
           >
-            {anchorRender(item.children)}
+            {anchorRender(item.descendants)}
           </Anchor.Link>
         )
       }
       return (
         <Anchor.Link
-          key={`${item.tag}-${item.title}`}
-          href={`#${item.href}`}
-          title={item.title}
-          className={item.ismain ? 'bold' : ''}
+          key={`${item.id}`}
+          href={`#${encodeURIComponent(item.name)}`}
+          title={item.name}
+          className={item.level == 2 ? 'bold' : ''}
         />
       )
     })

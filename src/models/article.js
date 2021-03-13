@@ -1,3 +1,4 @@
+import MarkdownContents from 'markdown-contents'
 import {
   getArticles,
   getHotArticles,
@@ -12,6 +13,7 @@ export default {
     hots: [],
     tags: [],
     detail: {},
+    detailMarkdownContents: [],
   },
   effects: {
     *articles({ payload }, { call, put }) {
@@ -41,6 +43,8 @@ export default {
     *detail({ payload }, { call, put }) {
       const { code, data } = yield call(getArticleDetail, payload)
       if (code === 0) {
+        data.contents = MarkdownContents(data.markdown || '').tree()
+        console.log(data.contents)
         yield put({
           type: 'handle',
           payload: {

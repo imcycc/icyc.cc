@@ -80,8 +80,8 @@ const Article = props => {
           </div>
           <div className={styles.articleContainerSider}>
             <TheAuthorCard />
-            {detail && detail.anchor && (
-              <ArticleAnchor anchors={JSON.parse(detail.anchor || '[]')} />
+            {detail && detail.contents && (
+              <ArticleAnchor anchors={detail.contents} />
             )}
           </div>
         </div>

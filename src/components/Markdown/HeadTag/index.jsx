@@ -7,7 +7,7 @@ const HeadTag = ({ level, children }) => {
   } = children[0]
   return React.createElement(
     `h${level}`,
-    { className: 'fw-700', key: nodeKey },
+    { className: 'fw-700', key: nodeKey, id: encodeURIComponent(value) },
     value,
   )
 }
